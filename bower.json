@@ -1,0 +1,17 @@
+{
+  "name": "datatables",
+  "authors": [
+    "Debajit Majumder <dmajumder3@gmail.com>"
+  ],
+  "description": "Datattables POC",
+  "main": "index.html",
+  "keywords": [
+    "Datatables",
+    "POC"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "datatables-colresize": "^0.0.10"
+  }
+}

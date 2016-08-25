@@ -1,0 +1,8 @@
+[
+    { "data": "name", "title": "t_name" },
+    { "data": "position", "title": "t_position" },
+    { "data": "office", "title": "t_office" },
+    { "data": "extn", "title": "t_extn" },
+    { "data": "start_date", "title": "t_start_date" },
+    { "data": "salary", "title": "t_salary" }
+]
