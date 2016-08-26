@@ -1,4 +1,5 @@
 (function( $ ){
+	/******************************* Datatable Options ****************************************/
 	var options = {
 		"ajax" 		  : "mock-data/data.json",
         "colReorder"  : true,
@@ -22,6 +23,8 @@
 	var dom =  options.colResize == true ? "Z" + bootstrapDOM : bootstrapDOM; // 'Z' options is required for column resizing
 
 	$(document).ready(function() {
+
+		/***************************** Initialize Datatable ************************************/
 	    $('#datatable1').DataTable( {
 	        "ajax"		: options.ajax,
 	        "colReorder": options.colReorder,
@@ -31,22 +34,33 @@
 						    targets: getColumnIndexesWithClass( options.columns, "dt-position" ),
 						    render: $.fn.dataTable.render.ellipsis( options['ellipsis-len'] || 30, true )
 						  },{
-						  	targets : options.columns.length,
-						  	"data" : null,
+						  	targets   : options.columns.length,
+						  	"data"    : null,
 						  	"visible" : true,
-						  	"sortable" : false,
-						  	"title" : "Action",
-						  	render : function (data, type, full) {
-						  		console.log("full", full);
-						  		console.log("data", data);
-						  		console.log("type", type);
+						  	"sortable": false,
+						  	"title"   : "Action",
+						  	render    : function (data, type, full) {
+						  		// console.log("full", full);
+						  		// console.log("data", data);
+						  		// console.log("type", type);
 					            return '<a href="#" onclick="alert(\''+ full['salary'] +'\');">Process</a>';
 					        }
 						  }],
-	        "dom"		: dom
+	        "dom"		: dom,
+	        "scrollY" 	: "100vh",
+	        "scrollCollapse" : true,
+	        "initComplete" : adjustTableHeight
 	    } );
+
 	} );
-    /* Helper methods */
+
+	/* Window Resize Event*/
+	$(window).resize(function(){
+		adjustTableHeight();
+    });
+
+    /******************************** Helper methods **********************************************/
+    /*============================================================================================*/
 	function getColumnIndexesWithClass( columns, className ) {
 	    var indexes = [];
 	    
@@ -57,6 +71,25 @@
 	    } );
 	 
 	    return indexes;
+	}
+
+	function adjustTableHeight() {
+		var oTable = $('#datatable1').dataTable();
+	    $('div.dataTables_scrollBody').css('height', calculateDatatableHeight());
+	    if (oTable != "") {
+	        oTable.fnAdjustColumnSizing();
+	        oTable.fnDraw(true);
+	    }
+	}
+
+	function calculateDatatableHeight() {
+		var dtTop  		   = $('#datatable1_wrapper .dataTables_scroll').offset().top || 100,
+			dtFooterHeight = $('#datatable1_info').closest('.row').outerHeight() || 40,
+			dtHeaderHeight = $('#datatable1_wrapper .dataTables_scrollHead').outerHeight() || 40,
+			buffer = 10, datatableHeight;
+
+			datatableHeight = $(window).height() - (dtTop + dtFooterHeight + dtHeaderHeight + buffer);
+			return datatableHeight + 'px';
 	}
 	
 })( jQuery )
