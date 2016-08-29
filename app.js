@@ -22,6 +22,10 @@
 	var dom =  options.colResize == true ? "Z" + bootstrapDOM : bootstrapDOM; // 'Z' options is required for column resizing
 
 	$(document).ready(function() {
+		/**** Initialize audio js *****/
+		audiojs.events.ready(function() {
+		    var as = audiojs.createAll();
+		});
 
 		/***************************** Initialize Datatable ************************************/
 	    $('#datatable1').DataTable( {
@@ -39,9 +43,6 @@
 						  	"sortable": false,
 						  	"title"   : "Action",
 						  	render    : function (data, type, full) {
-						  		// console.log("full", full);
-						  		// console.log("data", data);
-						  		// console.log("type", type);
 					            return '<a href="#" onclick="document.getElementById(\'popupBasic\').style.display=\'block\'">Process</a>';
 					        }
 						  }],
@@ -53,10 +54,18 @@
 
 	} );
 
+	/***************************************** Events *************************************************/
 	/* Window Resize Event*/
 	$(window).resize(function(){
 		adjustTableHeight();
     });
+
+	/* On Escape key press event */
+    $(document).keyup(function(e) {
+	    if (e.keyCode == 27) { 
+	        $('#popupBasic').css('display','none');
+	    }
+	});
 
     /******************************** Helper methods **********************************************/
     /*============================================================================================*/
