@@ -13,7 +13,9 @@
 						    { "data": "extn", "title": "t_extn", "className": "dt-extn" },
 						    { "data": "start_date", "title": "t_start_date", "className": "dt-start-date" },
 						    { "data": "salary", "title": "t_salary", "className": "dt-salary", "visible" : false}
-						]
+						],
+		"displayLength": 20,
+		"lengthMenu"   : [ 20, 25, 50 ]
 	};
 
 	var bootstrapDOM = 	"<'row'<'col-sm-12'tr>>" +
@@ -49,7 +51,9 @@
 	        "dom"		: dom,
 	        "scrollY" 	: "100vh",
 	        "scrollCollapse" : true,
-	        "initComplete" : adjustTableHeight
+	        "initComplete" : adjustTableHeight,
+	        "displayLength": options.displayLength,
+	        "lengthMenu"   : options.lengthMenu
 	    } );
 
 	} );
