@@ -7,3 +7,32 @@ table.table > thead > tr > th {
 table.table > thead > tr > th:last-child {
 	border-right: 0;
 }
+
+.ui-popup-container {
+    max-width: 100% !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100%;
+    position: absolute;
+    background: #131A1F;
+    height:70px;
+    display: none;
+    border: 1px solid;
+    padding: 15px;
+    text-align: center;
+}
+audio {
+    background-color: white;
+}
+      .audiojs { width: 100%;; max-width: 300px; height: 36px; background: #131A1F; overflow: hidden; font-family: monospace; font-size: 12px;
+        -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+        -o-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);  }
+        .audiojs .play-pause { width: 25px; height: 40px; padding: 4px 6px; margin: 0px; float: left; overflow: hidden; border-right: 0px; }
+      .audiojs p {display: none; width: 25px; height: 40px; margin: 0px; cursor: pointer;}
+      .audiojs .scrubber { position: relative; float: left; width: 45%; background: #fcc; height: 14px; margin: 10px; border-left: 0px; border-bottom: 0px; overflow: hidden; }
+      .audiojs .progress { position: absolute; top: 0px; left: 0px; height: 14px; width: 0px; background: #007fb8; z-index: 1; }
+      .audiojs .loaded { position: absolute; top: 0px; left: 0px; height: 14px; width: 0px; background: #ececec; }
+      .audiojs .time { color: #fcc; font-style: normal; }
+      .audiojs .error-message { float: left; display: none; margin: 0px 10px; height: 36px; width: 400px; overflow: hidden; line-height: 36px; white-space: nowrap; color: #fff;
+        text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; }

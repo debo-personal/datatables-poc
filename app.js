@@ -16,9 +16,8 @@
 						]
 	};
 
-	var bootstrapDOM = 	"<'row'<'col-sm-6'l><'col-sm-6'f>>" +
-						"<'row'<'col-sm-12'tr>>" +
-						"<'row'<'col-sm-5'i><'col-sm-7'p>>";
+	var bootstrapDOM = 	"<'row'<'col-sm-12'tr>>" +
+						"<'row'<'col-sm-5'l><'col-sm-7'p>>";
 
 	var dom =  options.colResize == true ? "Z" + bootstrapDOM : bootstrapDOM; // 'Z' options is required for column resizing
 
@@ -43,7 +42,7 @@
 						  		// console.log("full", full);
 						  		// console.log("data", data);
 						  		// console.log("type", type);
-					            return '<a href="#" onclick="alert(\''+ full['salary'] +'\');">Process</a>';
+					            return '<a href="#" onclick="document.getElementById(\'popupBasic\').style.display=\'block\'">Process</a>';
 					        }
 						  }],
 	        "dom"		: dom,

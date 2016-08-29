@@ -10,6 +10,12 @@
 	<script type="text/javascript" src="bower_components/datatables-colresize/dataTables.colResize.js"></script>
 	<script type="text/javascript" src="helper/dt.ellipsis.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+	<script src="audio.min.js"></script>
+	<script>
+	  audiojs.events.ready(function() {
+	    var as = audiojs.createAll();
+	  });
+	</script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -17,5 +23,8 @@
 		<table id="datatable1" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
 	    </table>
     </div>
+    <div data-role="popup" id="popupBasic" class="ui-popup-container">
+    	<audio src="2204880.mp3" preload="auto" />
+	</div>
 </body>
 </html>
